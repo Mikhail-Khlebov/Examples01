@@ -16,7 +16,7 @@
 // }
 // // Method2("текст сообщения");
 // // Method2("msg: текст сообщения"); - аргументы именнованые , это нужно когда методы принимабют какое-то кол-во аргументов
-// void Method21(string msg, int count)
+// void Method2.1(string msg, int count)
 // {
 //     int i = 0;
 //     while (i < count)
@@ -26,8 +26,8 @@
 
 //     }
 // }
-// Method21(msg: "Text", count: 4);
-// // Method21(count: 4, msg: "Text");
+// Method21(msg: "text", count: 4);
+// // Method21(count: 4, msg: "text");
 // // зацыкливание програмы убирает ctrl+c
 
 
@@ -42,14 +42,14 @@
 
 
 // Вид4 - Методы что-то принимают и что-то возвращают
-// string Method4(int count, string Text)
+// string Method4(int count, string text)
 // {
 //     int i = 0;
 //     string result = String.Empty;
 
 //     while (i < count)
 //     {
-//         result = result + Text;
+//         result = result + text;
 //         i ++;
 //     }
 //     return result;
@@ -58,12 +58,12 @@
 // string res = Method4(10, "asdf");
 // Console.WriteLine(res);
 // Вид 4.2 for
-// string Method4(int count, string Text)
+// string Method4(int count, string text)
 // {
 //     string result = String.Empty;
 //     for (int i = 0; i < count; i ++)
 //     {
-//         result = result + Text;
+//         result = result + text;
 //     }
 //     return result;
 // }
@@ -76,29 +76,99 @@
 //     {
 //         Console.WriteLine($"{i} x {j} = {i * j}");
 //     }
-//     // Console.WriteLine();
-}
+//     Console.WriteLine();
+// }
 //=====Работа с текстом
 // Дан текст. В тексте нужно все пробелы заменить чёрточками,
 // маленькие буквы “к” заменить большими “К”,
 // а большие “С” маленькими “с”.
 // Ясна ли задача?
-Console.Clear();
-string text = "— Я думаю, — сказал князь, улыбаясь, — что,"
-            + "ежели бы вас послали вместо нашего милого Винценгероде,"
-            + "вы бы взяли приступом согласие прусского короля." 
-            + "Вы так красноречивы. Вы дадите мне чаю?";
-string Replace(String text, char oldValue, char newValue)
-{
-    string result = String.Empty;
-    int length = text.Length;
-    for ( int i = 0; i < length; i++)
-    {
-        if(text[i] == oldValue) result = result + $"{newValue}";
-        else result = result + $"{text[i]}";
-    }
+// string text = "— Я думаю, — сказал князь, улыбаясь, — что,"
+//             + "ежели бы вас послали вместо нашего милого Винценгероде,"
+//             + "вы бы взяли приступом согласие прусского короля. "
+//             + "Вы так красноречивы. Вы дадите мне чаю?";
 
-    return result;
-string newText = Replace(text, ' ', '_');
-Console.WriteLine(newText);
+// string Replace(string text, char oldValue, char newValue)
+// {
+//     string result = String.Empty;
+
+//     int length = text.Length;
+//     for (int i = 0; i < length; i++)
+//     {
+//         if (text[i] == oldValue) result = result + $"{newValue}";
+//         else result = result + $"{text[i]}";
+//     }
+
+//     return result;
+// }
+// string newText = Replace(text, ' ', '_');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+// newText = Replace(text, 'к', 'К');
+// Console.WriteLine(newText);
+// Console.WriteLine();
+// newText = Replace(text, 'с', 'С');
+// Console.WriteLine(newText);
+// int[] arr = { 1, 5, 4, 5, 3, 2, 6, 7, 1, 1 };
+
+// void PrintArray(int[] array)
+// {
+//     int count = array.Length;
+
+//     for (int i = 0; i < count; i++)
+//     {
+//         Console.Write($"{array[i]} ");
+//     }
+//     Console.WriteLine();
+// }
+
+// void SelectionSort(int[] array)
+// {
+//     for (int i = 0; i < array.Length - 1; i++)
+//     {
+//         int minPosition = i;
+//         for (int j = i + 1; j < array.Length; j++)
+//         {
+//             if (array[j] < array[minPosition]) minPosition = j;
+//         }
+
+//         int temporary = array[i];
+//         array[i] = array[minPosition];
+//         array[minPosition] = temporary;
+//     }
+// }
+// PrintArray(arr);
+// SelectionSort(arr);
+// PrintArray(arr);
+
+int[] arr = { 1, 5, 4, 5, 3, 2, 6, 7, 1, 1 };
+
+void PrintArray(int[] array)
+{
+    int count = array.Length;
+
+    for (int i = 0; i < count; i++)
+    {
+        Console.Write($"{array[i]} ");
+    }
+    Console.WriteLine();
 }
+
+void SelectionSort(int[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        int maxPosition = i;
+        for (int j = i + 1; j < array.Length; j++)
+        {
+            if (array[j] > array[maxPosition]) maxPosition = j;
+        }
+
+        int temporary = array[i];
+        array[i] = array[maxPosition];
+        array[maxPosition] = temporary;
+    }
+}
+PrintArray(arr);
+SelectionSort(arr);
+PrintArray(arr);
